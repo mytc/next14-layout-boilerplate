@@ -7,6 +7,10 @@ export const userMenuLinks: {[key: string]: string} = {
 
 export const pageMenuLinks: {[key: string]: string} = {
     '/home': 'Home',
-    '/aboutt': 'About',
+    '/about': 'About',
     '/contact': 'Contact',  
+}
+
+export const adminTopbarLinks: {[key:string]:string} ={
+    
 }

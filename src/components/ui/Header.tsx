@@ -1,10 +1,10 @@
 'use client'
-import { useState, useEffect, useRef, MouseEventHandler } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FiMenu, FiUser } from 'react-icons/fi';
-import Link from 'next/link';
+
 import SearchBar from './SearchBar';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import  { usePathname } from 'next/navigation';
+
 import UserMenuItem from '../sections/UserMenuItem';
 import MobileUserMenuItem from '../sections/MobileUseerMenuItem';
 import PageMenuItem from '../sections/PageMenuItem';
@@ -13,11 +13,9 @@ export default function TopMenu() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
     const userMenuRef = useRef(null);
-    const pathname = usePathname(); 
- 
+     
     const { data: session, status } = useSession();
   
-    const isActive = (path:string) => pathname === path;
 
     useEffect(() => {
         function handleClickOutside(event:MouseEvent) {
@@ -51,17 +49,17 @@ export default function TopMenu() {
           
             {/* Logged in menu for desktop view, shown only if session is true */}
             {session && (
-    <div className="hidden md:flex justify-end space-x-4 bg-gray-100 p-2">
-        {/* Use 'justify-between' to push the Sign Out button to the far right */}
-        <div className='flex justify-between items-center p-4 max-w-screen-2xl w-full m-auto'>
-            <div className='flex justify-start space-x-4'>
-                <UserMenuItem />
-            </div>
-            <button onClick={handleSignOut} className="px-4">
-                Sign Out
-            </button>
-        </div>
-    </div>
+                <div className="hidden md:flex  bg-gray-100 p-2">
+                    {/* Use 'justify-between' to push the Sign Out button to the far right */}
+                    <div className='flex w-full  max-w-screen-2xl justify-end m-auto py-2'>
+                        <div className='flex space-x-4'>
+                            <UserMenuItem />
+                        </div>
+                        <button onClick={handleSignOut} className="px-4">
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
 )}
 
             <div className=' max-w-screen-2xl m-auto '>

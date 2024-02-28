@@ -18,14 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (//inter.className
-    <html lang="en" >
-       <body className={cn('relative h-full font-sans antialiased m-auto ',inter.className)}>
-        <Provider>
-         <TopMenu  />
-         <main className="max-w-screen-2xl m-auto">
-            {children}
-          </main>
-          <Footer />
+    <html lang="en">
+       <body className="bg-white">
+          <Provider>
+              {children}
           </Provider>
         </body>
     </html>
